@@ -18,8 +18,7 @@ import {
   Clock,
   Users,
   Smartphone,
-  ChevronDown,
-  ArrowLeft
+  ChevronDown
 } from 'lucide-react';
 
 export default function Home() {
