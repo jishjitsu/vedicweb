@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
+import Navigation from './navigation';
 import { 
   Heart, 
   Brain, 
@@ -16,7 +18,8 @@ import {
   Clock,
   Users,
   Smartphone,
-  ChevronDown
+  ChevronDown,
+  ArrowLeft
 } from 'lucide-react';
 
 export default function Home() {
@@ -29,8 +32,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 overflow-hidden">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4 -mt-20">
         {/* Animated Background Elements */}
         <motion.div 
           style={{ y, opacity }}
@@ -89,11 +95,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
-            <button className="group bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
-              <PlayCircle className="w-5 h-5" />
-              Start Free Session
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link href="/auth">
+              <button className="group bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
+                <PlayCircle className="w-5 h-5" />
+                Start Free Session
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>
             <button className="border-2 border-amber-600 text-amber-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-50 transition-all duration-300 flex items-center gap-2">
               <Download className="w-5 h-5" />
               Download App
@@ -525,13 +533,15 @@ function PricingSection() {
                 ))}
               </ul>
 
-              <button className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
-                plan.popular
-                  ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:shadow-lg transform hover:-translate-y-1'
-                  : 'border-2 border-amber-600 text-amber-700 hover:bg-amber-50'
-              }`}>
-                Get Started
-              </button>
+              <Link href="/auth">
+                <button className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:shadow-lg transform hover:-translate-y-1'
+                    : 'border-2 border-amber-600 text-amber-700 hover:bg-amber-50'
+                }`}>
+                  Get Started
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -579,10 +589,12 @@ function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="bg-white text-amber-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-50 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
-              <PlayCircle className="w-5 h-5" />
-              Start Your Free Trial
-            </button>
+            <Link href="/auth">
+              <button className="bg-white text-amber-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-50 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                <PlayCircle className="w-5 h-5" />
+                Start Your Free Trial
+              </button>
+            </Link>
             <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
               <Download className="w-5 h-5" />
               Download App
