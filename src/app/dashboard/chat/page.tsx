@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+
 import { useEffect, useState } from 'react';
 import { createClient } from '../../../../lib/supabase';
 import { User } from '@supabase/supabase-js';
@@ -119,7 +119,7 @@ export default function ChatPage() {
             </div>
             <div className="text-sm text-gray-500">
               <Calendar className="w-4 h-4 inline mr-1" />
-              Today's Session
+              Today&apos;s Session
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function ChatPage() {
               <div className="flex-1">
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 shadow-sm border border-amber-100">
                   <p className="text-gray-800">
-                    Namaste! 🙏 Welcome to your spiritual guidance session. I'm here to help you explore the wisdom of ancient texts like the Bhagavad Gita. What's on your mind today?
+                    Namaste! 🙏 Welcome to your spiritual guidance session. I&apos;m here to help you explore the wisdom of ancient texts like the Bhagavad Gita. What&apos;s on your mind today?
                   </p>
                 </div>
                 <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
@@ -155,7 +155,7 @@ export default function ChatPage() {
               <div className="flex-1">
                 <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl rounded-tr-md p-4 text-white ml-auto max-w-md">
                   <p>
-                    I've been struggling with anxiety lately. Can you share some wisdom from the Gita that might help?
+                    I&apos;ve been struggling with anxiety lately. Can you share some wisdom from the Gita that might help?
                   </p>
                 </div>
                 <div className="flex items-center gap-2 mt-2 text-xs text-gray-500 justify-end">
@@ -176,7 +176,7 @@ export default function ChatPage() {
                   </p>
                   <div className="bg-amber-50 rounded-lg p-3 border-l-4 border-amber-400 mb-3">
                     <p className="italic text-amber-900">
-                      "You have a right to perform your prescribed duty, but you are not entitled to the fruits of your actions."
+                      &quot;You have a right to perform your prescribed duty, but you are not entitled to the fruits of your actions.&quot;
                     </p>
                   </div>
                   <p className="text-gray-800">

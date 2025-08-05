@@ -129,7 +129,7 @@ export default function Dashboard() {
                 Start Your Therapy Session
               </h3>
               <p className="text-xl text-amber-100 mb-8 leading-relaxed">
-                Connect with your AI spiritual therapist for personalized guidance, emotional support, and wisdom from ancient Hindu scriptures. Whether you're dealing with anxiety, seeking purpose, or need spiritual guidance.
+                Connect with your AI spiritual therapist for personalized guidance, emotional support, and wisdom from ancient Hindu scriptures. Whether you&apos;re dealing with anxiety, seeking purpose, or need spiritual guidance.
               </p>
               <div className="flex items-center justify-center text-white font-semibold text-lg group-hover:gap-4 transition-all">
                 Begin Session Now

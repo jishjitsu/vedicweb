@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
-import Navigation from './navigation';
+import Navigation from '../../components/navigation';
 import { 
   Heart, 
   Brain, 
