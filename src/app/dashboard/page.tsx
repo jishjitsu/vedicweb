@@ -1,11 +1,17 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { createClient } from '../../../lib/supabase';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
-import { Leaf, LogOut, Sparkles, BookOpen, Heart, Star } from 'lucide-react';
+import { 
+  Leaf, 
+  LogOut, 
+  MessageCircle, 
+  BookOpen, 
+  Headphones,
+  ArrowRight
+} from 'lucide-react';
 
 export default function Dashboard() {
   const [user, setUser] = useState<User | null>(null);
@@ -47,7 +53,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
       {/* Header */}
-      <div className="flex items-center justify-between p-6 max-w-6xl mx-auto w-full">
+      <div className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-amber-100">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
             <Leaf className="w-5 h-5 text-white" />
@@ -57,6 +63,31 @@ export default function Dashboard() {
           </span>
         </div>
         
+        {/* Navigation */}
+        <div className="flex items-center gap-2 bg-amber-100 rounded-xl p-1">
+          <button
+            onClick={() => router.push('/dashboard/chat')}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-amber-600 hover:bg-amber-50"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Chat
+          </button>
+          <button
+            onClick={() => router.push('/dashboard/learn')}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-amber-600 hover:bg-amber-50"
+          >
+            <BookOpen className="w-4 h-4" />
+            Learn
+          </button>
+          <button
+            onClick={() => router.push('/dashboard/audiobooks')}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-amber-600 hover:bg-amber-50"
+          >
+            <Headphones className="w-4 h-4" />
+            Audiobooks
+          </button>
+        </div>
+
         <button
           onClick={handleSignOut}
           className="flex items-center gap-2 text-gray-600 hover:text-amber-700 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-amber-50"
@@ -67,97 +98,113 @@ export default function Dashboard() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Welcome Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Welcome to your spiritual journey
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            Your AI Spiritual Therapist
           </h1>
-          <p className="text-xl text-gray-600 mb-2">
-            Hello, {user.user_metadata?.name || user.email?.split('@')[0]}! 🙏
+          <p className="text-2xl text-gray-600 mb-4">
+            Welcome back, {user.user_metadata?.name || user.email?.split('@')[0]}! 🙏
           </p>
-          <p className="text-gray-500">
-            Your path to inner wisdom begins here
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Find peace, guidance, and healing through personalized therapy sessions powered by ancient wisdom from Hindu scriptures
           </p>
-        </motion.div>
-
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-amber-100"
-          >
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              AI Wisdom Guide
-            </h3>
-            <p className="text-gray-600">
-              Get personalized insights from ancient Vedic texts powered by AI
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-amber-100"
-          >
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Sacred Texts
-            </h3>
-            <p className="text-gray-600">
-              Explore timeless wisdom from Bhagavad Gita and other sacred texts
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-amber-100"
-          >
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
-              <Heart className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Mindful Living
-            </h3>
-            <p className="text-gray-600">
-              Daily practices and meditations for a balanced spiritual life
-            </p>
-          </motion.div>
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-2xl p-8 text-center text-white"
-        >
-          <Star className="w-12 h-12 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-4">
-            Begin Your Journey Today
+        {/* Feature Cards */}
+        <div className="grid md:grid-cols-1 gap-8 mb-16 max-w-4xl mx-auto">
+          {/* Primary Therapy Card - Featured */}
+          <div 
+            onClick={() => router.push('/dashboard/chat')}
+            className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-12 shadow-2xl cursor-pointer group hover:shadow-3xl transition-all hover:-translate-y-2 text-white"
+          >
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <div className="text-center">
+              <h3 className="text-3xl font-bold mb-4">
+                Start Your Therapy Session
+              </h3>
+              <p className="text-xl text-amber-100 mb-8 leading-relaxed">
+                Connect with your AI spiritual therapist for personalized guidance, emotional support, and wisdom from ancient Hindu scriptures. Whether you're dealing with anxiety, seeking purpose, or need spiritual guidance.
+              </p>
+              <div className="flex items-center justify-center text-white font-semibold text-lg group-hover:gap-4 transition-all">
+                Begin Session Now
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Supporting Features */}
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            {/* Learn Card */}
+            <div 
+              onClick={() => router.push('/dashboard/learn')}
+              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-amber-100 cursor-pointer group hover:shadow-xl transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Therapeutic Reading
+              </h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Explore verses from sacred texts for healing and reflection. Build positive habits through daily spiritual practice.
+              </p>
+              <div className="flex items-center text-amber-600 font-medium group-hover:text-amber-700">
+                Explore Verses
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+
+            {/* Audiobooks Card */}
+            <div 
+              onClick={() => router.push('/dashboard/audiobooks')}
+              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-amber-100 cursor-pointer group hover:shadow-xl transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Headphones className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Mindful Listening
+              </h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Relax and heal through guided spiritual audio sessions. Listen to calming recitations for meditation and peace.
+              </p>
+              <div className="flex items-center text-amber-600 font-medium group-hover:text-amber-700">
+                Start Listening
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Start CTA */}
+        <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl p-12 text-center text-white">
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to begin your spiritual journey?
           </h2>
-          <p className="text-amber-100 mb-6">
-            Start your first conversation with our AI wisdom guide and discover insights tailored to your spiritual path.
+          <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
+            Start with a conversation with our AI guide, explore ancient wisdom, or listen to sacred texts - choose your path
           </p>
-          <button className="bg-white text-amber-600 px-8 py-3 rounded-xl font-semibold hover:bg-amber-50 transition-colors">
-            Start Your First Session
-          </button>
-        </motion.div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => router.push('/dashboard/chat')}
+              className="bg-white text-amber-600 px-8 py-4 rounded-xl font-semibold hover:bg-amber-50 transition-colors"
+            >
+              Start AI Chat Session
+            </button>
+            <button 
+              onClick={() => router.push('/dashboard/learn')}
+              className="bg-white/20 text-white border border-white/30 px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition-colors"
+            >
+              Explore Verses
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

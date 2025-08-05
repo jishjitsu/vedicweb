@@ -140,13 +140,23 @@ export default function Auth() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center px-4">
         {/* Left side - Auth content */}
-        <div className="w-full max-w-lg relative z-10 ml-20 flex flex-col items-center">
+        <div className="w-full max-w-lg relative z-10 lg:ml-20 flex flex-col items-center">
+          {/* Mobile Back Arrow - simple arrow only */}
+          <div className="lg:hidden absolute top-0 w-full flex justify-start">
+            <Link href="/" className="p-2 rounded-lg border-2 border-amber-600 bg-amber-50 text-amber-700 hover:bg-amber-100 hover:border-amber-400 transition-all duration-200 backdrop-blur-sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
+                <path d="M19 12H5" />
+                <path d="M12 19L5 12L12 5" />
+              </svg>
+            </Link>
+          </div>
+
           {/* Logo and Back Button Container */}
           <div className="mb-8 relative flex justify-center w-full">
             {/* Back Button - positioned to the left */}
-            <div className="absolute left-10 top-1/2 transform -translate-y-1/2">
+            <div className="hidden lg:block absolute left-10 top-1/2 transform -translate-y-1/2">
               <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-amber-600 bg-amber-50 text-amber-700 hover:bg-amber-100 hover:border-amber-400 transition-all duration-200 backdrop-blur-sm">
                 <div className="w-4 h-4 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -161,7 +171,7 @@ export default function Auth() {
             {/* Logo - centered */}
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
-                <Leaf className="w-20 h-20 text-white" />
+                <Leaf className="w-5 h-5 text-white" />
               </div>
               <span className="text-3xl font-bold bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">
                 Vedic AI

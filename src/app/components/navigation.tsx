@@ -15,10 +15,10 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
-            <Leaf className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 md:w-8 md:h-8 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center">
+            <Leaf className="w-6 h-6 md:w-5 md:h-5 text-white" />
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">
+          <span className="text-2xl md:text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">
             Vedic AI
           </span>
         </Link>
@@ -27,7 +27,7 @@ export default function Navigation() {
         <div className="flex items-center gap-3">
           <Link 
             href="/auth"
-            className="text-gray-600 hover:text-amber-700 transition-colors font-medium flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-amber-50"
+            className="hidden md:flex text-gray-600 hover:text-amber-700 transition-colors font-medium items-center gap-2 px-4 py-2 rounded-lg hover:bg-amber-50"
           >
             <LogIn className="w-4 h-4" />
             Login

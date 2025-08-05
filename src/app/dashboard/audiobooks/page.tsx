@@ -34,7 +34,7 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4 pt-16 md:-mt-20 md:pt-8">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-4  md:pt-0 -mt-20 lg:-mt-20">
         {/* Animated Background Elements */}
         <motion.div 
           style={{ y, opacity }}
@@ -53,7 +53,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-w-6xl mx-auto text-center z-10 -mt-8 md:mt-0">
+        <div className="max-w-6xl mx-auto text-center z-10 md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
@@ -70,7 +70,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-amber-700 via-orange-600 to-red-600 bg-clip-text text-transparent mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-amber-700 via-orange-600 to-red-600 bg-clip-text text-transparent mb-6 leading-tight px-4"
           >
             Find Peace in
             <br />
@@ -81,7 +81,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed px-4"
           >
             Vedic AI transforms your struggles into wisdom using personalized insights from the Bhagavad Gita. 
             Experience therapy that understands your cultural roots and guides you toward inner peace.
@@ -91,15 +91,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4"
+            className="flex flex-col gap-4 justify-center mb-12 px-4"
           >
             <Link href="/auth" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto group bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 active:scale-95">
+              <button className="w-full sm:w-auto group bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 active:scale-95">
                 <PlayCircle className="w-5 h-5" />
                 Start Free Session
               </button>
             </Link>
-            <button className="w-full sm:w-auto border-2 border-amber-600 text-amber-700 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-amber-50 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
+            <button className="w-full sm:w-auto border-2 border-amber-600 text-amber-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-amber-50 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
               <Download className="w-5 h-5" />
               Download App
             </button>
@@ -109,21 +109,19 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={isHeroInView ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 1 }}
-            className="flex items-center justify-center gap-8 mt-16 text-sm text-gray-600"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-600 px-4"
           >
-            <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-green-600" />
-                Completely Confidential
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-blue-600" />
-                Available 24/7
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-purple-600" />
-                10,000+ Sessions
-              </div>
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-green-600" />
+              <span className="whitespace-nowrap">Completely Confidential</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-blue-600" />
+              <span className="whitespace-nowrap">Available 24/7</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-purple-600" />
+              <span className="whitespace-nowrap">10,000+ Sessions</span>
             </div>
           </motion.div>
         </div>
@@ -131,11 +129,10 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-[110px] left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <ChevronDown className="w-6 h-6 text-amber-600" />
         </motion.div>
-      
       </section>
 
       {/* Problem Section */}
@@ -180,7 +177,7 @@ function ProblemSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               icon: Brain,
@@ -203,13 +200,13 @@ function ProblemSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="text-center p-6 rounded-2xl hover:bg-gray-50 transition-colors"
+              className="text-center p-4 md:p-6 rounded-2xl hover:bg-gray-50 transition-colors"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <item.icon className="w-8 h-8 text-amber-600" />
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <item.icon className="w-7 h-7 md:w-8 md:h-8 text-amber-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-              <p className="text-gray-600">{item.description}</p>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+              <p className="text-sm md:text-base text-gray-600">{item.description}</p>
             </motion.div>
           ))}
         </div>
@@ -239,13 +236,14 @@ function SolutionSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="order-2 lg:order-1"
           >
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {[
                 {
                   title: "Culturally Rooted Wisdom",
@@ -260,13 +258,13 @@ function SolutionSection() {
                   description: "Professional-grade support starting at just ₹200 per month. Mental health shouldn't be a luxury."
                 }
               ].map((item, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Check className="w-4 h-4 text-white" />
+                <div key={index} className="flex gap-3 md:gap-4">
+                  <div className="w-5 h-5 md:w-6 md:h-6 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-3 h-3 md:w-4 md:h-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm md:text-base">{item.title}</h3>
+                    <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -277,19 +275,19 @@ function SolutionSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
-            <div className="bg-white p-8 rounded-3xl shadow-xl">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center">
-                  <Quote className="w-5 h-5 text-white" />
+            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl">
+              <div className="flex items-start gap-3 md:gap-4 mb-4">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Quote className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm text-gray-500 mb-1">Bhagavad Gita • Chapter 2, Verse 47</p>
-                  <p className="text-gray-800 italic mb-3">
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs md:text-sm text-gray-500 mb-1">Bhagavad Gita • Chapter 2, Verse 47</p>
+                  <p className="text-gray-800 italic mb-3 text-sm md:text-base">
                     &ldquo;You have a right to perform your prescribed duty, but do not be attached to the fruits of your actions...&rdquo;
                   </p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-xs md:text-sm">
                     This verse relates to your work stress. Focus on doing your best without obsessing over outcomes. 
                     Let&apos;s explore practical ways to apply this wisdom to your daily routine.
                   </p>
@@ -342,25 +340,25 @@ function HowItWorksSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="space-y-8 md:space-y-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              className={`flex flex-col lg:flex-row items-center gap-6 md:gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div className="flex-1 text-center lg:text-left">
-                <div className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 text-white text-sm font-bold px-4 py-2 rounded-full mb-4">
+              <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+                <div className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 text-white text-xs md:text-sm font-bold px-3 md:px-4 py-1 md:py-2 rounded-full mb-4">
                   Step {step.number}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                <p className="text-lg text-gray-600">{step.description}</p>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                <p className="text-base md:text-lg text-gray-600">{step.description}</p>
               </div>
-              <div className="flex-1 flex justify-center">
-                <div className="w-64 h-64 bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl flex items-center justify-center">
-                  <span className="text-6xl font-bold text-amber-600/20">{step.number}</span>
+              <div className="flex-1 flex justify-center order-1 lg:order-2">
+                <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl flex items-center justify-center">
+                  <span className="text-4xl md:text-6xl font-bold text-amber-600/20">{step.number}</span>
                 </div>
               </div>
             </motion.div>
@@ -413,24 +411,24 @@ function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-6 italic">&ldquo;{testimonial.content}&rdquo;</p>
+              <p className="text-gray-700 mb-4 md:mb-6 italic text-sm md:text-base">&ldquo;{testimonial.content}&rdquo;</p>
               <div>
-                <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                <p className="text-sm text-gray-600">{testimonial.role}</p>
+                <p className="font-semibold text-gray-900 text-sm md:text-base">{testimonial.name}</p>
+                <p className="text-xs md:text-sm text-gray-600">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}
@@ -494,47 +492,47 @@ function PricingSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`relative p-8 rounded-3xl border-2 ${
+              className={`relative p-6 md:p-8 rounded-3xl border-2 ${
                 plan.popular 
                   ? 'border-amber-500 bg-gradient-to-br from-amber-50 to-orange-50' 
                   : 'border-gray-200 bg-white'
               } hover:shadow-xl transition-all duration-300`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-semibold">
                     Most Popular
                   </span>
                 </div>
               )}
               
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-gray-600 mb-4">{plan.description}</p>
+              <div className="text-center mb-6 md:mb-8">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <p className="text-gray-600 mb-4 text-sm md:text-base">{plan.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600">{plan.period}</span>
+                  <span className="text-3xl md:text-4xl font-bold text-gray-900">{plan.price}</span>
+                  <span className="text-gray-600 text-sm md:text-base">{plan.period}</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-amber-600 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-amber-600 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm md:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <Link href="/auth">
-                <button className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
+              <Link href="/auth" className="block">
+                <button className={`w-full py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 active:scale-95 ${
                   plan.popular
                     ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:shadow-lg transform hover:-translate-y-1'
                     : 'border-2 border-amber-600 text-amber-700 hover:bg-amber-50'
@@ -588,20 +586,20 @@ function CTASection() {
             Join thousands who&apos;ve found clarity, purpose, and inner peace through the timeless wisdom of the Bhagavad Gita.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4">
-            <Link href="/auth" className="w-full sm:w-auto">
+          <div className="flex flex-col gap-4 justify-center mb-8 md:mb-12 px-4">
+            <Link href="/auth" className="w-full sm:w-auto mx-auto">
               <button className="w-full sm:w-auto bg-white text-amber-700 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-amber-50 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 active:scale-95">
                 <PlayCircle className="w-5 h-5" />
                 Start Free Trial
               </button>
             </Link>
-            <button className="w-full sm:w-auto border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
+            <button className="w-full sm:w-auto mx-auto border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95">
               <Download className="w-5 h-5" />
               Download App
             </button>
           </div>
 
-          <p className="text-amber-100 text-sm">
+          <p className="text-amber-100 text-xs md:text-sm text-center px-4">
             &ldquo;Just as a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies, giving up the old and useless ones.&rdquo; - Bhagavad Gita 2.22
           </p>
         </motion.div>
